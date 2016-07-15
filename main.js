@@ -8,7 +8,7 @@ var mainState = {
 
     create: function() {
         // Change the background color of the game to blue
-        game.stage.backgroundColor = '#71c5cf';
+        game.stage.backgroundColor = '#6182bc';
 
         // Set the physics system
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -29,7 +29,7 @@ var mainState = {
         spaceKey.onDown.add(this.jump, this);
         this.pipes = game.add.group();
         this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
-        console.log(this.pipes, 'test');
+
     },
 
 
