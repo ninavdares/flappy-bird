@@ -67,6 +67,11 @@ var mainState = {
         // Automatically kill the pipe when it's no longer visible
         pipe.checkWorldBounds = true;
         pipe.outOfBoundsKill = true;
+
+
+        this.score = 0;
+this.labelScore = game.add.text(20, 20, "0",
+    { font: "30px Arial", fill: "#ffffff" });
     },
     addRowOfPipes: function() {
         // Randomly pick a number between 1 and 5
