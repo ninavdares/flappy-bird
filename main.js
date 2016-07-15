@@ -42,6 +42,9 @@ this.labelScore = game.add.text(20, 20, "0",
         // Call the 'restartGame' function
         if (this.bird.y < 0 || this.bird.y > 490)
             this.restartGame();
+
+          game.physics.arcade.overlap(
+            this.bird, this.pipes, this.restartGame, null, this);
     },
 
     // Make the bird jump
@@ -87,7 +90,7 @@ this.labelScore = game.add.text(20, 20, "0",
                 this.addOnePipe(400, i * 60 + 10);
 
                 this.score += 1;
-                this.labelScore.text = this.score;
+            this.labelScore.text = this.score;
     },
 
 
