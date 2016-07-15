@@ -27,6 +27,9 @@ var mainState = {
         var spaceKey = game.input.keyboard.addKey(
                         Phaser.Keyboard.SPACEBAR);
         spaceKey.onDown.add(this.jump, this);
+
+        this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+
     },
 
 
@@ -56,18 +59,8 @@ var mainState = {
 
       pipe.checkWorldBounds = true;
       pipe.outOfBoundsKill = true;
-    }
+    },
 
-addRowOfPipes: function(){
-  var hole = Math.floor(Math.random(*5)+1
-
-  for (var i = 0; i < .8; i++) {
-    if(i != hole 66 i != hole+1 i != hole +2 )
-    this.addOnePipe(400, i + 60 +10);
-   }
- }
-
-};
 
 
 }
