@@ -51,16 +51,23 @@ var mainState = {
         // Start the 'main' state, which restarts the game
         game.state.start('main');
     },
-    addOnePipe: function(x,y) {
-      var pipe = game.add.sprite(x, y, 'pipe');
-      this.pipes.add(pipe);
-      game.physics.arcade.enable(pipe);
-      pipe.body.velocity.x = -200;
+    addOnePipe: function(x, y) {
+        // Create a pipe at the position x and y
+        var pipe = game.add.sprite(x, y, 'pipe');
 
-      pipe.checkWorldBounds = true;
-      pipe.outOfBoundsKill = true;
+        // Add the pipe to our previously created group
+        this.pipes.add(pipe);
+
+        // Enable physics on the pipe
+        game.physics.arcade.enable(pipe);
+
+        // Add velocity to the pipe to make it move left
+        pipe.body.velocity.x = -200;
+
+        // Automatically kill the pipe when it's no longer visible
+        pipe.checkWorldBounds = true;
+        pipe.outOfBoundsKill = true;
     },
-
     addRowOfPipes: function() {
         // Randomly pick a number between 1 and 5
         // This will be the hole position
