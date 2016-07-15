@@ -30,6 +30,10 @@ var mainState = {
         this.pipes = game.add.group();
         this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
 
+        this.score = 0;
+this.labelScore = game.add.text(20, 20, "0",
+    { font: "30px Arial", fill: "#ffffff" });
+
     },
 
 
@@ -69,9 +73,7 @@ var mainState = {
         pipe.outOfBoundsKill = true;
 
 
-        this.score = 0;
-this.labelScore = game.add.text(20, 20, "0",
-    { font: "30px Arial", fill: "#ffffff" });
+
     },
     addRowOfPipes: function() {
         // Randomly pick a number between 1 and 5
