@@ -4,11 +4,13 @@ var mainState = {
         // Load the bird sprite
         game.load.image('bird', 'assets/bird.png');
         game.load.image('pipe', 'assets/pipe.png');
+        game.load.audio('jump', 'assets/jump.wav');
     },
 
     create: function() {
+        this.jumpSound = game.add.audio('jump');
         // Change the background color of the game to blue
-        game.stage.backgroundColor = '#6182bc';
+        game.stage.backgroundColor = '#4fc3f7';
 
         // Set the physics system
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -21,7 +23,7 @@ var mainState = {
         game.physics.arcade.enable(this.bird);
 
         // Add gravity to the bird to make it fall
-        this.bird.body.gravity.y = 1000;
+        this.bird.body.gravity.y = 900;
 
         // Call the 'jump' function when the spacekey is hit
         var spaceKey = game.input.keyboard.addKey(
@@ -51,6 +53,7 @@ this.labelScore = game.add.text(20, 20, "0",
     jump: function() {
         // Add a vertical velocity to the bird
         this.bird.body.velocity.y = -350;
+        this.jumpSound.play();
     },
 
     // Restart the game
